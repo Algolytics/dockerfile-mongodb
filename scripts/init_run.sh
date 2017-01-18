@@ -20,6 +20,7 @@ while ! nc -vz localhost 27017; do echo "INITRUN sleep 1"; sleep 1; done
 echo "INITRUN Running initialization scripts..."
 if [[ -e /scripts/init_script.js ]]; then
   mongo $DB /scripts/init_script.js
+  rm -f /scripts/init_script.js
 fi
 
 # Stop MongoDB service
