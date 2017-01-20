@@ -33,4 +33,4 @@ mongo $DB --eval "db.createUser({ user: '$USER', pwd: '$PASS', roles: [ { role: 
 echo "FIRSTRUN Stoping MongoDB..."
 /usr/bin/mongod --dbpath /data --shutdown
 
-#rm -f /.firstrun
+rm -f /.firstrun
