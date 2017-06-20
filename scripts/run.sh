@@ -18,6 +18,7 @@ echo "RUN MongoDB User: \"$USER\""
 echo "RUN MongoDB Password: \"$PASS\""
 echo "RUN MongoDB Database: \"$DB\""
 echo "RUN MongoDB Role: \"$ROLE\""
+echo "RUN MongoDB Params: \"$@\""
 echo "========================================================================"
 
 # Start MongoDB
