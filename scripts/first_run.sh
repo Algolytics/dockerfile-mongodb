@@ -3,7 +3,7 @@ USER=${MONGODB_USERNAME:-mongo}
 echo $USER > /.mongo_user
 PASS=${MONGODB_PASSWORD:-$(pwgen -s -1 16)}
 echo $PASS > /.mongo_pass
-ADMIN_USER='userAdmin'
+ADMIN_USER='admin'
 echo $ADMIN_USER > /.mongo_admin_user
 ADMIN_PASS=`pwgen -s -1 16`
 echo $ADMIN_PASS > /.mongo_admin_pass
@@ -44,7 +44,7 @@ mongo $DB --eval "db.createUser({ user: '$USER', pwd: '$PASS', roles: [ { role: 
 
 # Create Admin
 echo "Creating admin..."
-mongo $DB --eval "db.createUser({ user: '$ADMIN_USER', pwd: '$ADMIN_PASS', roles: [ { role: 'userAdminAnyDatabase', db: 'admin' } ] });"
+mongo $DB --eval "db.createUser({ user: '$ADMIN_USER', pwd: '$ADMIN_PASS', roles: [ { role: 'root', db: 'admin' } ] });"
 
 # Stop MongoDB service
 echo "FIRSTRUN Stoping MongoDB..."
