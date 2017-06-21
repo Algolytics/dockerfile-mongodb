@@ -36,8 +36,6 @@ fi
 
 while ! nc -vz localhost 27017; do echo "FIRSTRUN waiting for MongoDB"; sleep 1; done
 
-mongo $DB --eval "db.dropAllUsers();"
-
 # Create User
 echo "Creating user: \"$USER\"..."
 mongo $DB --eval "db.createUser({ user: '$USER', pwd: '$PASS', roles: [ { role: '$ROLE', db: '$DB' } ] });"

@@ -23,4 +23,9 @@ echo "========================================================================"
 
 # Start MongoDB
 echo "RUN Starting MongoDB..."
+
+if [ $MONGODB_AUTH == "true" ]; then
 /usr/bin/mongod --dbpath /data --auth $@
+else
+/usr/bin/mongod --dbpath /data $@
+fi
